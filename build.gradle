@@ -1,0 +1,31 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.19.0'
+}
+
+group = 'ru.clevertec'
+version = '1.0'
+
+gradlePlugin {
+    plugins {
+        pluginFileImage {
+            id = 'ru.clevertec.pluginFileImage'
+            displayName = 'clevertec-plugin-file-image'
+            description = 'The plugin can download an image from the internet'
+            implementationClass = 'ru.clevertec.plugin.MyPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://clevertec.ru/'
+    vcsUrl = 'https://github.com/ARTURITPRO/mal-gradle.git'
+    tags = ['clevertec', 'download', 'image']
+}
+
+publishing {
+    repositories {
+        mavenLocal() 
+    }
+}
